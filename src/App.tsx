@@ -11,11 +11,20 @@ const App: React.FC = () => {
       const response = await axios.get('https://api.chucknorris.io/jokes/random');
       setJoke(response.data.value);
     } catch (error) {
-      console.error('error form get joke:', error);
+      console.error('error from get joke:', error);
     }
   };
   useEffect(() => {
-    fetchJoke();
+    const fetchData = async () => {
+      try {
+        await fetchJoke();
+      } catch (error) {
+        console.error('(useEffect) error from get joke:', error);
+      }
+    };
+    fetchData().catch((error) => {
+      console.error('(catch) error from get joke:', error);
+    });
   }, []);
   return (
     <>
