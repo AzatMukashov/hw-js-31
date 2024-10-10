@@ -1,18 +1,18 @@
-import React, { useState, useCallback } from 'react';
-import MovieItem from './MovieItem.tsx';
-import MovieForm from './MovieForm.tsx';
-import { Movie } from '../types';
+import React, { useState, useCallback } from "react";
+import MovieItem from "./MovieItem.tsx";
+import MovieForm from "./MovieForm.tsx";
+import { Movie } from "../types";
 
 const MovieList: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   const addMovie = (name: string) => {
-    setMovies([...movies, {id: Date.now(), name}]);
+    setMovies([...movies, { id: Date.now(), name }]);
   };
 
   const updateMovie = useCallback((id: number, name: string) => {
     setMovies((prevMovies) =>
-      prevMovies.map((movie) => (movie.id === id ? {...movie, name} : movie))
+      prevMovies.map((movie) => (movie.id === id ? { ...movie, name } : movie)),
     );
   }, []);
 
@@ -22,7 +22,7 @@ const MovieList: React.FC = () => {
 
   return (
     <>
-      <MovieForm addMovie={addMovie}/>
+      <MovieForm addMovie={addMovie} />
       <>
         <h4>To watch list:</h4>
         {movies.map((movie) => (
