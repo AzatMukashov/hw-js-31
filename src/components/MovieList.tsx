@@ -23,7 +23,8 @@ const MovieList: React.FC = () => {
   return (
     <>
       <MovieForm addMovie={addMovie}/>
-      <ul>
+      <>
+        <h4>To watch list:</h4>
         {movies.map((movie) => (
           <MovieItem
             key={movie.id}
@@ -32,7 +33,7 @@ const MovieList: React.FC = () => {
             deleteMovie={deleteMovie}
           />
         ))}
-      </ul>
+      </>
     </>
   );
 };
