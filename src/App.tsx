@@ -5,6 +5,8 @@ import Joke from './components/haha/Joke.tsx';
 import ButtonJoke from './components/haha/ButtonJoke.tsx';
 
 const App: React.FC = () => {
+  const [page, setPage] = useState<boolean>(false);
+
   const [joke, setJoke] = useState('');
   const fetchJoke = async () => {
     try {
@@ -28,10 +30,16 @@ const App: React.FC = () => {
   }, []);
   return (
     <>
-      <MovieList/>
-      <h1>Joke this day</h1>
-      <Joke joke={joke}/>
-      <ButtonJoke fetchJoke={fetchJoke}/>
+      <button onClick={() => setPage(!page)}>Change exercise</button>
+      {page ? (
+        <>
+          <h1>Joke this day</h1>
+          <Joke joke={joke}/>
+          <ButtonJoke fetchJoke={fetchJoke}/>
+        </>
+      ) : (
+        <MovieList/>
+      )}
     </>
   );
 };
