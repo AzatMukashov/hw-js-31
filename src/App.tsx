@@ -10,7 +10,9 @@ const App: React.FC = () => {
   const [joke, setJoke] = useState('');
   const fetchJoke = async () => {
     try {
-      const response = await axios.get('https://api.chucknorris.io/jokes/random');
+      const response = await axios.get(
+        'https://api.chucknorris.io/jokes/random',
+      );
       setJoke(response.data.value);
     } catch (error) {
       console.error('error from get joke:', error);

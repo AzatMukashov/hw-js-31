@@ -5,9 +5,7 @@ interface ButtonJokeProps {
 }
 
 const ButtonJoke: React.FC<ButtonJokeProps> = ({fetchJoke}) => {
-  return (
-    <button onClick={fetchJoke}>New joke</button>
-  );
+  return <button onClick={fetchJoke}>New joke</button>;
 };
 
 export default ButtonJoke;
