@@ -7,7 +7,7 @@ const MovieList: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   const addMovie = (name: string) => {
-    setMovies([...movies, {id: Date.now(), name}]);
+    setMovies([{id: Date.now(), name}, ...movies]);
   };
 
   const updateMovie = useCallback((id: number, name: string) => {
