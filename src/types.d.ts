@@ -1,4 +1,9 @@
 export interface Movie {
   id: number;
-  title: string;
+  name: string;
+}
+export interface MovieItemProps {
+  movie: Movie;
+  updateMovie: (id: number, name: string) => void;
+  deleteMovie: (id: number) => void;
 }
